@@ -81,7 +81,7 @@ class _AddNewBlogPageState extends State<AddNewBlogPage> {
           if (state is BlogFailure) {
             showSnackBar(state.message, context);
           }
-          if (state is BlogSuccess) {
+          if (state is BlogUploadSuccess) {
             Navigator.pushAndRemoveUntil(
               context,
               BlogPage.route(),
