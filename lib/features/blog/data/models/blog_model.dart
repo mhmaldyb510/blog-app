@@ -43,6 +43,8 @@ class BlogModel extends Blog {
     'topics': topics,
   };
 
+  toJson() => toMap();
+
   factory BlogModel.fromJson(Map<String, dynamic> json) => BlogModel(
     id: json['id'] as String,
     userId: json['user_id'] as String,
