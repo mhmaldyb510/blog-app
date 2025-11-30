@@ -1,16 +1,96 @@
-# blog_app
+# Blog App
 
-A new Flutter project.
+A Simple Blog App to learn Clean Architecture and SOLID principles, designed to demonstrate Clean Architecture principles and offline capabilities.
+
+## Features
+
+- **Authentication**: Secure user sign-up and login using Supabase.
+- **Blog Management**:
+  - Create new blog posts with images.
+  - View a feed of all blog posts.
+  - View detailed blog posts.
+- **Offline Support**: Access previously loaded blogs even without an internet connection (using Hive).
+- **Clean Architecture**: Separation of concerns into Domain, Data, and Presentation layers.
+- **State Management**: Powered by `flutter_bloc`.
+- **Functional Programming**: Utilizes `fpdart` for robust error handling.
+
+## Tech Stack
+
+- **Framework**: Flutter
+- **Language**: Dart
+- **Backend**: Supabase
+- **State Management**: flutter_bloc
+- **Dependency Injection**: get_it
+- **Local Storage**: Hive
+- **Functional Programming**: fpdart
+- **Networking**: internet_connection_checker_plus
 
 ## Getting Started
 
-This project is a starting point for a Flutter application.
+### Prerequisites
 
-A few resources to get you started if this is your first Flutter project:
+- Flutter SDK
+- A Supabase project (URL and Anon Key)
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+### Installation
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+1.  **Clone the repository**
+
+    ```bash
+    git clone https://github.com/mhmaldyb510/blog-app.git
+    cd blog-app
+    ```
+
+2.  **Install dependencies**
+
+    ```bash
+    flutter pub get
+    ```
+
+3.  **Environment Setup**
+
+    This project uses an `AppSecrets` class to manage sensitive keys.
+    Create a file named `app_secrets.dart` in `lib/core/secret/`:
+
+    ```dart
+    class AppSecrets {
+      static const supabaseUrl = 'YOUR_SUPABASE_URL';
+      static const supabaseAnonKey = 'YOUR_SUPABASE_ANON_KEY';
+    }
+    ```
+
+4.  **Run the App**
+
+    ```bash
+    flutter run
+    ```
+
+## Folder Structure
+
+The project is organized as follows:
+
+```
+lib/
+├── core/                   # Core functionality (errors, network, themes, utils)
+├── features/               # Feature-based modules
+│   ├── auth/               # Authentication feature
+│   │   ├── data/           # Data layer (repositories, sources)
+│   │   ├── domain/         # Domain layer (entities, usecases, repo interfaces)
+│   │   └── presentation/   # Presentation layer (blocs, pages, widgets)
+│   └── blog/               # Blog management feature
+│       ├── data/
+│       ├── domain/
+│       └── presentation/
+├── init_dependencies.dart  # Dependency injection setup (GetIt)
+└── main.dart               # Application entry point
+```
+
+## Architecture
+
+This project follows **Clean Architecture**:
+
+- **Domain Layer**: Entities, Use Cases, Repository Interfaces (Pure Dart, no Flutter dependencies).
+- **Data Layer**: Models, Data Sources (Remote/Local), Repository Implementations.
+- **Presentation Layer**: BLoCs, Pages, Widgets.
+
+---
