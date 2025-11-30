@@ -2,6 +2,7 @@ import 'dart:io';
 
 import 'package:blog_app/core/common/cubits/app_user/app_user_cubit.dart';
 import 'package:blog_app/core/common/widgets/loading_screen.dart';
+import 'package:blog_app/core/constants/constants.dart';
 import 'package:blog_app/core/theme/app_palette.dart';
 import 'package:blog_app/core/utils/pick_image.dart';
 import 'package:blog_app/core/utils/show_snake_bar.dart';
@@ -144,41 +145,35 @@ class _AddNewBlogPageState extends State<AddNewBlogPage> {
                       scrollDirection: Axis.horizontal,
                       child: Row(
                         spacing: 10,
-                        children:
-                            [
-                                  'Technology',
-                                  'Business',
-                                  'Programming',
-                                  'Entertainment',
-                                ]
-                                .map(
-                                  (e) => GestureDetector(
-                                    onTap: () {
-                                      setState(() {
-                                        if (selectedTopics.contains(e)) {
-                                          selectedTopics.remove(e);
-                                        } else {
-                                          selectedTopics.add(e);
-                                        }
-                                      });
-                                      debugPrint(selectedTopics.toString());
-                                    },
-                                    child: Chip(
-                                      color: selectedTopics.contains(e)
-                                          ? const WidgetStatePropertyAll(
-                                              AppPalette.gradient1,
-                                            )
-                                          : null,
-                                      label: Text(e),
-                                      side: selectedTopics.contains(e)
-                                          ? null
-                                          : const BorderSide(
-                                              color: AppPalette.borderColor,
-                                            ),
-                                    ),
-                                  ),
-                                )
-                                .toList(),
+                        children: Constants.topics
+                            .map(
+                              (e) => GestureDetector(
+                                onTap: () {
+                                  setState(() {
+                                    if (selectedTopics.contains(e)) {
+                                      selectedTopics.remove(e);
+                                    } else {
+                                      selectedTopics.add(e);
+                                    }
+                                  });
+                                  debugPrint(selectedTopics.toString());
+                                },
+                                child: Chip(
+                                  color: selectedTopics.contains(e)
+                                      ? const WidgetStatePropertyAll(
+                                          AppPalette.gradient1,
+                                        )
+                                      : null,
+                                  label: Text(e),
+                                  side: selectedTopics.contains(e)
+                                      ? null
+                                      : const BorderSide(
+                                          color: AppPalette.borderColor,
+                                        ),
+                                ),
+                              ),
+                            )
+                            .toList(),
                       ),
                     ),
                     const SizedBox(height: 10),
