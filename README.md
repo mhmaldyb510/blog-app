@@ -93,4 +93,24 @@ This project follows **Clean Architecture**:
 - **Data Layer**: Models, Data Sources (Remote/Local), Repository Implementations.
 - **Presentation Layer**: BLoCs, Pages, Widgets.
 
+## Screenshots
+
+<table>
+  <tr>
+    <td><img src="screens/sign-up.png" alt="Sign Up" width="300"></td>
+    <td><img src="screens/sign-in.png" alt="Sign In" width="300"></td>
+  </tr>
+  <tr>
+    <td><img src="screens/all-blogs.png" alt="All Blogs" width="300"></td>
+    <td><img src="screens/blog-page.png" alt="Blog Page" width="300"></td>
+  </tr>
+  <tr>
+    <td><img src="screens/add-new-blog-empty.png" alt="Add New Blog Empty" width="300"></td>
+    <td><img src="screens/add-new-blog-full.png" alt="Add New Blog Full" width="300"></td>
+  </tr>
+  <tr>
+    <td colspan="2" align="center"><img src="screens/no-internet.png" alt="No Internet" width="300"></td>
+  </tr>
+</table>
+
 ---
